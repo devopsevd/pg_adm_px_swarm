@@ -1,4 +1,4 @@
-version: '3.1'
+version: '2'
 services:
   db:
     image: postgres
@@ -7,9 +7,19 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./volumes:/var/lib/postgresql/data
+      - dbvol:/var/lib/postgresql/data
 
   adminer:
+    depends_on:
+      - db
     image: adminer
     ports:
-      - 18080:8080
+      - 80:8080
+
+volumes:
+  dbvol:
+    driver: pxd
+    external: false
+    driver_opts:
+      size: 2
+      repl: 1
