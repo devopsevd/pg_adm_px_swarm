@@ -1,4 +1,4 @@
-# postgres_with_adminer
-docker-compose file to run postgres and adminier
+# postgres_with_adminer using portworx
 
-docker stack services pgsql
+docker stack deploy --compose-file docker-compose.yml pgsql
+
