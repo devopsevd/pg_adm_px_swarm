@@ -22,4 +22,4 @@ volumes:
     external: false
     driver_opts:
       size: 2
-      repl: 1
+      repl: 2
